@@ -1,0 +1,10 @@
+name: IM TRYING DUDE
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    name: tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World"
