@@ -1,10 +1,15 @@
-name: IM TRYING DUDE
+name: Im trying Dude
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - example/*
+
+  workflow_dispatch:
 
 jobs:
-  test:
-    name: tests
-    runs-on: ubuntu-latest
+  print-echo:
+    name: print echo
+    runs-on: ubuntu-24.04
     steps:
-      - run: echo "Hello World"
+      - run: echo "Hello Worls"
