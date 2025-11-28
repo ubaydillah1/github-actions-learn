@@ -1,15 +1,21 @@
-name: Im trying Dude
+name: This is ENV Dude
 
 on:
-  push:
-    branches:
-      - example/*
-
   workflow_dispatch:
+env:
+  OUTER: outer env
 
 jobs:
-  print-echo:
-    name: print echo
-    runs-on: ubuntu-24.04
+  env-run:
+    name: Print Env
+    env:
+      ENVRUN: env run
+    runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello Worls"
+      - name: Print Steps
+        env:
+          STEPS: steps env
+        run: |
+          echo "steps print : $STEPS"
+          echo "env-run print : $ENVRUN"
+          echo "outer print : $OUTER"
