@@ -1,4 +1,4 @@
-name: This is ENV Dude
+name: FOOO
 
 on:
   workflow_dispatch:
@@ -6,16 +6,21 @@ env:
   OUTER: outer env
 
 jobs:
-  env-run:
+  demo:
     name: Print Env
     env:
       ENVRUN: env run
     runs-on: ubuntu-latest
     steps:
-      - name: Print Steps
+      - name: step-1
         env:
           STEPS: steps env
         run: |
           echo "steps print : $STEPS"
-          echo "env-run print : $ENVRUN"
+          echo "demo print : $ENVRUN"
           echo "outer print : $OUTER"
+          echo foo=fooooooooo
+          echo "Foo is : $foo"
+      - name: step-2
+        run: |
+          echo "Foo is : @foo"
