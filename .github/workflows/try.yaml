@@ -1,34 +1,16 @@
-name: FOOO
+name: Demo
 
-on:
-  workflow_dispatch:
-env:
-  OUTER: outer env
+on: workflow_dispatch
 
 jobs:
-  demo:
-    name: Print Env
-    env:
-      ENVRUN: env run
+  test:
+    environment: production
     runs-on: ubuntu-latest
+
     steps:
-      - name: step-1
-        id: first
-        env:
-          STEPS: steps env
+      - name: Print all
         run: |
-          foo=fooooo
-
-          echo "steps print : $STEPS"
-          echo "demo print : $ENVRUN"
-          echo "outer print : $OUTER"
-
-          echo "foo=secret fooo" >> $GITHUB_OUTPUT
-          echo "FOO=fooooo secret" >> $GITHUB_ENV
-
-          echo "Foo is : $foo"
-          echo "Foo is : $FOO"
-      - name: step-2
-        run: |
-          echo "Foo is : $FOO"
-          echo "Foo is : ${{ steps.first.outputs.foo }}"
+          echo "Repo Secret: ${{ secrets.REPO_SECRET }}"
+          echo "Repo Variable: ${{ vars.REPO_VARIABLE }}"
+          echo "Env Secret: ${{ secrets.SECRET_ENVIRONMENT }}"
+          echo "Env Variable: ${{ vars.ENVIRONMENT_VARIABLES }}"
