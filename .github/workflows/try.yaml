@@ -23,4 +23,4 @@ jobs:
           echo "Foo is : $foo"
       - name: step-2
         run: |
-          echo "Foo is : @foo"
+          echo "Foo is : $foo"
