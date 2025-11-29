@@ -22,8 +22,9 @@ jobs:
           echo "steps print : $STEPS"
           echo "demo print : $ENVRUN"
           echo "outer print : $OUTER"
-          echo "foo=${foo}" >> @GITHUB_OUTPUT
-          echo "FOO=${foo}" >> @GITHUB_ENV
+
+          echo "foo=${foo}" >> $GITHUB_OUTPUT
+          echo "FOO=${foo}" >> $GITHUB_ENV
 
           echo "Foo is : $foo"
           echo "Foo is : $FOO"
